@@ -1,0 +1,89 @@
+<!-- ==== Global Header ===== -->
+<div class="container-xxl sticky-top">
+    <div class="row justify-content-center align-item-center header-section">
+        <div class="col-md-4 col-3 align-self-center">
+            <a href="/" class="logo-text"><h1>Blogs</h1></a>
+        </div>
+        <div class="col-md-7 col-7 align-self-center">
+          <div class="sign">
+            {% if user.is_authenticated %}
+            <a href="/" class="sign-link">
+            <h4><i class="bi bi-person-circle"></i></h4>
+            <p>Hey, {{user.first_name}}</p>
+            </a>
+            {% else %}
+            <a href="/signin/" class="sign-link">
+            <h4><i class="bi bi-person-circle"></i></h4>
+            <p>SignIn / SignUp</p>
+            </a>
+            {% endif %}
+            
+          </div>
+        </div>
+        <div class="col-md-1 col-2 align-self-center">
+            <a class="nav-menu-icon" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><span><img src="/static/Images/list.svg"></span></a>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                    <div class="offcanvas-header">
+                    <h1 class="logo-text">Blogs</h1>
+                    <button type="button" class="btn-closed" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-arrow-left"></i></button>
+                </div>
+                <div class="offcanvas-body">
+                  <div class="row justify-content-center">                  
+                    <div class="col-md-12 col-12">
+                      <h6 class="wishes">
+                        {% now "H" as current_time %}
+                          {% if current_time < 12 %}
+                            <span><i class="bi bi-sunrise-fill"></i></span>
+                            Good Morning
+                          {% elif current_time > 12 %}
+                            <span><i class="bi bi-sun-fill"></i></span>
+                            Good afternoon{{now}}                         
+                          {% else %}
+                            <span><i class="bi bi-sunrise-fill"></i></span>
+                            Good Morning                                                                      
+                        {% endif %}, {{user.first_name}}
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="search-form"><input type="text" placeholder="Search blogs, poems & stories...."><a href="#"><button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button></a></div>
+                  <div class="row justify-content-center align-items-center  mt-5 mb-4">                  
+                    <div class="col-md-4 col-4 type-box">
+                      <a href="/blogs/">
+                      <img src="/static/Images/blogs.jpg" alt="">
+                      <h6>Blogs</h6>
+                      </a>
+                    </div>
+                    <div class="col-md-4 col-4 type-box">
+                      <a href="/poems/">
+                      <img src="/static/Images/poems.jpg" alt="">
+                      <h6>Poems</h6>
+                      </a>
+                    </div>
+                    <div class="col-md-4 col-4 type-box">
+                      <a href="/stories/">
+                      <img src="/static/Images/stories.jpg" alt="">
+                      <h6>Stories</h6>
+                      </a>
+                    </div>
+                  </div>
+                <div class="row justify-content-center mb-3">                  
+                  <div class="col-md-12 col-12 menu-list">
+                    <ul>
+                      <a href=""><li>About Us</li></a>
+                      <a href="/start-posting/"><li>Start Posting</li></a>
+                      <a href="/request-your-topic/"><li>Request Your Topic</li></a>
+                      <a href=""><li>Author</li></a>
+                      <a href="/contact-us/"><li>Contact Us</li></a>
+                      <a href=""><li>Terms & Condition</li></a>
+                      <a href=""><li>Privacy Policy</li></a>
+                      {% if user.is_authenticated %}
+                      <a href="/signout/"><li>Log Out</li></a>
+                      {% endif %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>

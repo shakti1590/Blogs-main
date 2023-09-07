@@ -1,0 +1,14 @@
+<!-- ==== Subcribe to our Newsletter ===== -->
+<div class="container-xxl">
+    <div class="row subscribe-section justify-content-center align-items-center">
+        <div class="col-12">
+            <h2 class="heading">Subcribe to our Newsletter <span><i class="fa-solid fa-square"></i></span></h2>
+            <p class="subheading">Subscribe and be the first to hear about publish of new blog post!</p>
+            <form action="/" method="post">
+                {% csrf_token %}
+                <input type="text" placeholder="Enter email address" name="email">
+                <button class="subscribe-button">Subscribe</button>
+            </form>                
+        </div>
+    </div>
+</div>
